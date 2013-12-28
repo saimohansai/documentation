@@ -1,0 +1,214 @@
+
+packages has to to be installed 
+12.4 or 13.10 ubuntu 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1	sudo add-apt-repository ppa:webupd8team/java
+2	sudo apt-get update
+3	sudo apt-get install oracle-java6-installer
+4	sudo apt-get install git gnupg flex bison gperf build-essential   zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev   libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386   libgl1-mesa-dev g++-multilib mingw32 tofrodos   python-markdown libxml2-utils xsltproc zlib1g-dev:i386
+5	sudo  apt-get upgrade
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Installing required packages (Ubuntu 10.04 -- 11.10)
+--------------------------------------------------------
+  sudo apt-get install git-core gnupg flex bison gperf build-essential   zip curl zlib1g-dev libc6-dev lib32ncurses5-dev ia32-libs   x11proto-core-dev libx11-dev lib32readline5-dev lib32z-dev   libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown   libxml2-utils xsltproc
+-------------------------------------------------------
+Installing required packages (Ubuntu 12.04)
+------------------------------------------------------------------------------------------------------------------------------------------------
+sudo apt-get install git gnupg flex bison gperf build-essential   zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev   libx11-dev:i386 libreadline6-dev:i386  g++-multilib mingw32 tofrodos   python-markdown libxml2-utils xsltproc zlib1g-dev:i386
+------------------------------------------------------   
+From fire fox site
+
+https://developer.mozilla.org/en-US/Firefox_OS/Firefox_OS_build_prerequisites?redirectlocale=en-US&redirectslug=Firefox_OS%2FFirefox_OS_build_prerequisites
+------------------------------------------------------
+sudo apt-get install autoconf2.13 bison bzip2 ccache curl flex gawk gcc g++ g++-multilib git ia32-libs lib32ncurses5-dev lib32z1-dev libgl1-mesa-dev libx11-dev make zip
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+syncing the code
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    Make sure you have a bin/ directory in your home directory and that it is included in your path:
+
+    $ mkdir ~/bin
+    $ PATH=~/bin:$PATH
+
+    Download the Repo tool and ensure that it is executable:
+
+    $ curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+    $ chmod a+x ~/bin/repo
+
+	Downloading the Source
+
+
+
+To install Repo:
+
+ 
+After installing Repo, set up your client to access the Android source repository:
+
+    Create an empty directory to hold your working files. If you're using MacOS, this has to be on a case-sensitive filesystem. Give it any name you like:
+
+    $ mkdir WORKING_DIRECTORY
+    $ cd WORKING_DIRECTORY
+
+    Run repo init to bring down the latest version of Repo with all its most recent bug fixes. You must specify a URL for the manifest, which specifies where the various repositories included in the Android source will be placed within your working directory.
+
+    $ repo init -u https://android.googlesource.com/platform/manifest
+
+    To check out a branch other than "master", specify it with -b:
+---------------------------------------------------------------------------------------------------
+ ex   $ repo init -u https://android.googlesource.com/platform/manifest -b android-4.0.1_r1
+-------------------------------------------------------------------------------------------------
+we need check which version od android to sync 
+
+the below site will give you the  
+----------------------------------------------------
+https://android.googlesource.com/platform/manifest
+--------------------------------------------------
+
+-----------------------------------------------------------------------------------------------
+ 
+ When prompted, configure Repo with your real name and email address. To use the Gerrit code-review tool, you will need an email address that is connected with a registered Google account. Make sure this is a live address at which you can receive messages. The name that you provide here will show up in attributions for your code submissions.
+
+A successful initialization will end with a message stating that Repo is initialized in your working directory. Your client directory should now contain a .repo directory where files such as the manifest will be kept.
+Downloading the Android Source Tree
+
+To pull down the Android source tree to your working directory from the repositories as specified in the default manifest, run
+
+$ repo sync -c -d -j5
+
+The Android source files will be located in your working directory under their project names. The initial sync operation will take an hour or more to complete. For more about repo sync and other Repo commands, see the Developing section. 
+
+repo init -u https://android.googlesource.com/platform/manifest -b android-4.0.1_r1
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+setup  ubuntu tuch
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://wiki.ubuntu.com/Touch/Install
+
+
+Step 1 - Desktop Setup
+
+The following steps are required on your desktop system that you'll need in order to flash and communicate with the device.
+
+Set up the Touch Developer Preview Tools PPA
+
+The PPA has the tools and dependencies to support Precise, Quantal, Raring and Saucy. Add the Ubuntu Touch PPA by adding the following custom source list entry to your /etc/apt/sources.list file.
+
+sudo add-apt-repository ppa:phablet-team/tools
+
+or if add-apt-repository is not available, append the following to your sources.list:
+
+deb http://ppa.launchpad.net/phablet-team/tools/ubuntu [dist-codename] main
+deb-src http://ppa.launchpad.net/phablet-team/tools/ubuntu [dist-codename] main
+
+*Note: replace [dist-codename] with precise, quantal, raring or saucy.
+
+Then do the following:
+
+sudo apt-get update
+sudo apt-get install phablet-tools android-tools-adb android-tools-fastboot
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+tar usage
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+tar -zcvf "sourse.tar.gz"  "file name"
+
+split -b 1024m "file.tar.gz" "file.tar.gz.part-"
+
+tar -xvzf community_images.tar.gz
+
+
+
+
+
+
+
+----------------------------
+
+
+ export CCACHE_DIR=/home/mohansai/TRANSFER/AMIT_SRC/cache
+
+
+
+=================================================================================================
+flashing
+=================================================================================================
+adb device
+   20  adb devices
+   21  adb reboot-bootloader
+   22  fastboot oem unlock
+   23  fastboot devices
+   24  fastboot reboot
+     
+   
+   https://developers.google.com/android/nexus/drivers
+	./extract-broadcom-mako.sh  I ACCEPT
+    ./extract-lge-mako.sh 		I ACCEPT
+	./extract-qcom-mako.sh	 	I ACCEPT
+   
+   
+		export USE_CCACHE=1
+		export CCACHE_DIR=/home/mohan/Android/cache
+		prebuilts/misc/linux-x86/ccache/ccache -M 50G
+   35  	source build/envsetup.sh 
+   36  	lunch
+   37  make -j4
+		make updatepackage
+
+		
+	adb devices
+    adb reboot-bootloader
+    fastboot oem unlock
+    fastboot devices
+    
+
+		
+		fastboot -w update /home/mohan/Android/out......
+		
+		ex:- fastboot -w update $ANDROID_PRODUCT_OUT/$TARGET_PRODUCT-img-eng.$USER.zip
+	
+	
+	you have to install gapps
+	
+	
+adb reboot fastboot
+fastboot flash recovery saucy-preinstalled-recovery-armel+grouper.img
+
+
+
+
+
+http://nosemaj.org/howto-build-android-nexus-4
+
+
+
+

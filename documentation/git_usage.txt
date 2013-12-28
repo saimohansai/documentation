@@ -1,0 +1,64 @@
+
+reference sites
+
+http://alvinabad.wordpress.com/2013/03/23/how-to-specify-an-ssh-key-file-with-the-git-command/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------
+theis is the basic documentation on git 
+
+---------------------------------------------------------------------------------------------------------------------------
+
+create an repositories in git site 
+
+-----------------------------------------------------------------------------------
+using http
+-------------------------------------------------------------------------------------
+sudo apt-get source vls
+sudo apt-get source vlc
+git init
+git add vlc
+git commit
+git remote add origin https://github.com/saimohansai/vlc.git
+git push -u origin master
+  
+
+----------------------------------------------------------------------------------------------------------------------------
+using ssh
+-----------------------------------
+	
+ssh-keygen -t rsa -C "mohansai25@gmail.com"
+  
+the above command will generate the ssh key
+
+go to the ssh directory and open the id_rsa.pub file and copy the key and past in git account
+
+settings->sshkey->Add ssh key and save it 
+
+  cd .ssh/
+
+less id_rsa.pub 
+  
+git remote add origin git@github.com:saimohansai/vlc1.git
+git remote run origin
+git remote rm origin
+git remote add origin git@github.com:saimohansai/vlc1.git
+git push -u origin master
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
