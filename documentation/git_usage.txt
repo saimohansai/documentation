@@ -62,3 +62,35 @@ git push -u origin master
 -------------------------------------------------------------------------------------------------------------------------------
 
 
+-----------------------------------------------------------------------------------------------------------------------------
+add system to git hub
+---------------------------------------------------------------------------------------------------------------------------
+
+to add system to git hub
+
+
+1-> Open up the terminal and run cd ~/.ssh && ssh-keygen
+2-> less id_rsa.pub
+3-> Add your key to your account via the website.
+
+	copy the key and 
+
+4-> finally setup your git config 
+
+	git config --global user.name "saimohansai"
+	git config --global user.email mohansai25@gmail.com
+
+
+
+git clone git@github.com:saimohansai/documentation.git
+
+
+
+
+
+
+
+
+
+
+
